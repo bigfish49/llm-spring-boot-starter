@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <title>问答页面</title>
+</head>
+<body>
+<form id="qa-form">
+  <label for="question">问题：</label>
+  <input type="text" id="question" name="question" value="推荐一些自驾游路线"><br><br>
+  <button type="submit">提交</button>
+</form>
+<br/>
+<br/>
+<h1>答案：</h1>
+<br/>
+<div id="output"></div>
+
+<script>
+  const form = document.getElementById('qa-form');
+  const outputDiv = document.getElementById('output');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const question = formData.get('question');
+
+    outputDiv.innerText = '';
+    const eventStream = new EventSource(`/llm/stream?q=${encodeURIComponent(question)}`);
+    eventStream.onmessage = (event) => {
+      const replyObj = JSON.parse(event.data)
+      outputDiv.innerText += `${replyObj.data}\n`;
+      if(replyObj.end){
+        eventStream.close();
+      }
+    };
+
+  });
+</script>
+</body>
+</html>

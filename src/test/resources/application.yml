@@ -1,0 +1,16 @@
+spring:
+  llm:
+    client:
+      ernie-bot:
+        remote-url: "xxx"
+        access-token: "xxx"
+        stream: true
+      openai:
+        enabled: true
+        api-type: azure
+        api-key: "xxx"
+        temperature: 0.7
+        remote-url: "https://openai-access.openai.azure.com/"
+        retry-count: 1
+        deployment-id: "gpt-turbo-service"
+        api-version: "2022-12-01"
