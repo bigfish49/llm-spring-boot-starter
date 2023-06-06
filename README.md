@@ -1,5 +1,6 @@
 # llm spring boot starter
 llm(large language model) with spring boot! stream feature supported using webflux
+支持openai, chat glm, 文心一言等大模型
 
 ## 安装
 ```shell
@@ -16,7 +17,6 @@ mvn dependency
 </dependency>
 ```
 2.7.0也是spring-boot的版本
-使用
 ```java
 /**
  * @author kepler
