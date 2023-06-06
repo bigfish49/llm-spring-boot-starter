@@ -1,6 +1,8 @@
 # llm spring boot starter
-llm(large language model) with spring boot! stream feature supported using webflux
-支持openai, chat glm, 文心一言等大模型
+LLM(large language model)的spring boot starter!
+支持自动注入LLM Client, 开箱即用。 
+采用webflux实现, 完全支持LLM的流式输出！
+支持openai, chat glm, 文心一言等大模型。
 
 ## 安装
 ```shell
